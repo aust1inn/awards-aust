@@ -20,7 +20,6 @@ def register(request):
         form = UserRegisterForm()
     return render(request, 'users/register.html', {'form': form})
 
-# @login_required(login_url='/accounts/login/')
 def home(request):
     projects = Project.get_projects()
     reviews = Reviews.get_reviews()
@@ -46,7 +45,7 @@ def home(request):
 
     return render(request,"home.html",{"projects":projects, "reviews":reviews,"form": form,"profile":profile})
 
-@login_required(login_url='/accounts/login/')
+@login_required
 def profile(request,profile_id):
 
     profile = Profile.objects.get(pk = profile_id)
@@ -54,7 +53,7 @@ def profile(request,profile_id):
 
     return render(request,"profile.html",{"profile":profile,"projects":projects})
 
-@login_required(login_url='/accounts/login/')
+@login_required
 def add_profile(request):
     current_user = request.user
     if request.method == 'POST':
@@ -69,7 +68,7 @@ def add_profile(request):
         form = NewProfileForm()
     return render(request, 'new_profile.html', {"form": form})
 
-@login_required(login_url='/accounts/login/')
+@login_required
 def update_project(request):
     current_user = request.user
     profiles = Profile.get_profile()
@@ -87,7 +86,7 @@ def update_project(request):
                 form = UploadForm()
             return render(request,'upload.html',{"user":current_user,"form":form})
 
-@login_required(login_url='/accounts/login/')
+@login_required
 def add_review(request,pk):
     project = get_object_or_404(Project, pk=pk)
     current_user = request.user
@@ -109,7 +108,7 @@ def add_review(request,pk):
         form = ReviewForm()
         return render(request,'review.html',{"user":current_user,"form":form})
 
-@login_required(login_url='/accounts/login/')
+@login_required
 def search_results(request):
 
     if 'title' in request.GET and request.GET["title"]:
@@ -123,7 +122,7 @@ def search_results(request):
         message = "You haven't searched for any project"
         return render(request,'search.html',{"message":message})
 
-@login_required(login_url='/accounts/login/')
+@login_required
 def all(request, pk):
     profile = Profile.objects.get(pk=pk)
     projects = Project.objects.all().filter(posted_by_id=pk)
