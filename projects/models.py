@@ -28,7 +28,7 @@ class Profile(models.Model):
 
 
 class Project(models.Model):
-    posted_by = models.ForeignKey(User, null=True)
+    posted_by = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE,null=True)
     title = models.CharField(max_length=100, null=True)
     project_image = models.ImageField(upload_to='projects/',null=True)
