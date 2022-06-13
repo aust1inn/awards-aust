@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from django.urls import path
-from awards import views as user_views
+from projects import views as user_views
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
