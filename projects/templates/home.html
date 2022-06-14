@@ -38,6 +38,36 @@ width: 100px;">
           </div>
           <hr>
           
+          <div class="review-section">
+            {% for review in reviews %}
+            {% if project.id == review.project.id %}
+
+            <p><strong>{{review.juror}}</strong> {{review.comment}} [usability: {{review.usability}}, content: {{review.content}} , design: {{review.design}}]</p>
+            <p>{{ project.average_score | floatformat }}</p>
+            {% endif %}
+
+            {%endfor%}
+
+
+            {{form.media}}
+            <hr>
+            <form action="{%url 'review' pk=project.id%}" method="post" enctype="multipart/form-data" id="sema">
+              {%csrf_token%}
+              <table>
+                {{ form.as_table }}
+              </table>
+              <button type="submit">Vote</button>
+
+
+            </form>
+
+            {% block scripts %}
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+            {% bootstrap_javascript %}
+            {% endblock %}
+          </div>
+
 
         </div>
 
