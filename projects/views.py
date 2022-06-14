@@ -15,10 +15,10 @@ def register(request):
             form.save()
             username = form.cleaned_data.get('username')
             messages.success(request, f'Account created for {username}!')
-            return redirect('index')
+            return redirect('home')
     else:
         form = UserRegisterForm()
-    return render(request, 'users/register.html', {'form': form})
+    return render(request, 'accounts/register.html', {'form': form})
 
 def home(request):
     projects = Project.get_projects()
@@ -51,7 +51,7 @@ def profile(request,profile_id):
     profile = Profile.objects.get(pk = profile_id)
     projects = Project.objects.filter(profile_id=profile).all()
 
-    return render(request,"profile.html",{"profile":profile,"projects":projects})
+    return render(request,"accounts/profile.html",{"profile":profile,"projects":projects})
 
 @login_required
 def add_profile(request):
