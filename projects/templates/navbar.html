@@ -36,7 +36,7 @@ function w3_close() {
 </script>
 </div>
 <div class="col-4" style="text-align:left; margin-top: 15px;">
-  <form class="form-inline mx-auto" role="search" action="" method="get">
+  <form class="form-inline mx-auto" role="search" action="{% url 'search_results' %}" method="get">
           <div class="form-group">
             <input type="text" class="form-control" role="search" placeholder="search project" aria-label="Search" name="title">
           </div>
