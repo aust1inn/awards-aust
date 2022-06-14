@@ -66,7 +66,7 @@ def add_profile(request):
 
     else:
         form = NewProfileForm()
-    return render(request, 'new_profile.html', {"form": form})
+    return render(request, 'accounts/new_profile.html', {"form": form})
 
 @login_required
 def update_project(request):
