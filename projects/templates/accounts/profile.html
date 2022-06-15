@@ -59,7 +59,9 @@
       <div class="card-columns">
 
     <div class="card border-secondary">
-      <img class="card-img-top" class="img-responsive" src="{{project.project_image.url}}" size="">
+      <button class="button"><a href="{{ project.project_link }}" target="_blank">view site</a></button>
+
+      <img class="card-img-top" class="img-responsive" src="{{project.project_image.url}}" height="250px" width="100px">
     </div>
       {% empty %}
       <div class="col-md-12">
