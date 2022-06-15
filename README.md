@@ -1,14 +1,25 @@
 # awards-aust
 Aust1inn-Awards is an application allow a user to post a project he/she has created and get it reviewed by his/her peers.
 
+## User Stories
+These are the behaviours/features that the application implements for use by a user.
+
+Users would like to:
+* View all projects submitted by any user.
+* Click on links to visit a live site.
+* Search for users.
+* Must be signed up to vote
+* See averages for the three grading criterias
+* Grade Projects.
+
 ## Getting Started
 
 ## SetUp / Installation Requirements
 
 ### Prerequisites
 
-* python3.7
-* Django 1.11
+* python3.8
+* Django 3.01
 * Virtualenv
 
 
